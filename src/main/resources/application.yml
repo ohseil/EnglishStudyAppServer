@@ -6,8 +6,8 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    password:
-    url: jdbc:mysql://13.124.127.158:3306/englishstudyapp?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+    password: '0000'
+    url: jdbc:mysql://localhost:3306/englishstudyapp?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
     username: englishstudy
   jpa:
     database: mysql
