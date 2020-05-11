@@ -7,7 +7,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     password: '0000'
-    url: jdbc:mysql://localhost:3306/englishstudyapp?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/EnglishStudyApp?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
     username: englishstudy
   jpa:
     database: mysql
