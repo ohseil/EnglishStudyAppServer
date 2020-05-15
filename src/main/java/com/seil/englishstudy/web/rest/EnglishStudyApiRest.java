@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-@Api(tags = {"Data."})
+@Api(tags = {"Manage English Study Data API."})
 @RestController
 @RequestMapping(value="/studydata")
 public class EnglishStudyApiRest {
@@ -61,6 +61,12 @@ public class EnglishStudyApiRest {
     @DeleteMapping
     public ResponseEntity deleteData(@RequestParam @Valid Long id) {
         return ResponseEntity.ok(studyDataDeleteService.deleteStudyData(id));
+    }
+
+    @ApiOperation(value = "Delete All Data.", notes = "데이터를 전부 삭제한다.")
+    @DeleteMapping(value="/all")
+    public ResponseEntity deleteDataAll() {
+        return ResponseEntity.ok(studyDataDeleteService.deleteStudyDataAll());
     }
 
     @GetMapping(value = "/getTest")

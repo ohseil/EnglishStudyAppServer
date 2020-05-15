@@ -26,6 +26,7 @@ public class StudyDataUpdateService {
             updateData.setQuestion(request.getQuestion());
             updateData.setAnswer(request.getAnswer());
             englishStudyDataRepository.save(updateData);
+            englishStudyDataRepository.flush();
         });
 
         return DataCUDResponse.builder().msg("success").build();

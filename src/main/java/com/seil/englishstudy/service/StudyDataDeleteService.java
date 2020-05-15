@@ -26,4 +26,10 @@ public class StudyDataDeleteService {
 
         return DataCUDResponse.builder().msg("success").build();
     }
+
+    public DataCUDResponse deleteStudyDataAll() {
+        englishStudyDataRepository.deleteAll();
+        englishStudyDataRepository.flush();
+        return DataCUDResponse.builder().msg("success").build();
+    }
 }

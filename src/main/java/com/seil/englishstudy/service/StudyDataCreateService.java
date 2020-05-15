@@ -24,6 +24,7 @@ public class StudyDataCreateService {
                 build();
 
         englishStudyDataRepository.save(data);
+        englishStudyDataRepository.flush();
 
         return DataCUDResponse.builder().msg("success").build();
     }
