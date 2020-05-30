@@ -11,4 +11,5 @@ import java.util.Optional;
 public interface EnglishStudyDataRepository extends JpaRepository<EnglishStudyData, Long> {
 
     List<EnglishStudyData> findByCategorycode(long categoryCode);
+    EnglishStudyData findByCategorycodeAndQuestionAndAnswer(long categorycode, String question, String answer);
 }

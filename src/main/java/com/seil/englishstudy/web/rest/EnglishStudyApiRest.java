@@ -39,6 +39,14 @@ public class EnglishStudyApiRest {
         return ResponseEntity.ok(studyDataCreateService.createStudyData(request));
     }
 
+    @ApiOperation(value = "Get PK.", notes = "카테고리 코드, 한글문장, 영어문장으로 pk값을 가져온다.")
+    @GetMapping(value="/pk")
+    public ResponseEntity readPK(@RequestParam @Valid long categoryCode,
+                                 @RequestParam @Valid String question ,
+                                 @RequestParam @Valid String answer) {
+        return ResponseEntity.ok(studyDataReadService.readPK(categoryCode, question, answer));
+    }
+
     @ApiOperation(value = "Data Update.", notes = "기존의 데이터를 수정한다.")
     @PutMapping(produces = "application/json;charset=utf-8")
     public ResponseEntity updateData(@RequestBody @Valid DataUpdateRequest request) {
