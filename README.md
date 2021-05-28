@@ -12,9 +12,9 @@ spring boot  Api server connecting to english study android application
 - Admin Client can CRUD data using manager android application.
 - Client / Admin client use JWT issued from Server to get data.
 - Client have to do google login.   
-#### User application github uri   
+#### user application github uri   
 https://github.com/ohseil/EnglishStudy-Android-App   
-#### Managing application github uri   
+#### managing application github uri   
 https://github.com/ohseil/EnglishStudy-Manage-Android-App   
 
 
