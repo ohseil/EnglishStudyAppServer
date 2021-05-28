@@ -3,6 +3,10 @@
                
 ### About the project  
 spring boot  Api server connecting to english study android application   
+### Skill   
+- Java
+- Spring Boot2
+- SQL DB   
 ### Structure   
 - Client can read data by category using android application.
 - Admin Client can CRUD data using manager android application.
@@ -12,11 +16,11 @@ spring boot  Api server connecting to english study android application
 
 ## Using Representive Api Reference   
 
-### Sign in / up and Issue JWT   
-#### uri = [address]/signin - [POST]   
+### - Sign in / up and Issue JWT   
+#### uri = (address)/signin  [POST]   
 
-### Read data by category.   
-#### uri = [address]/admin/create - [GET]   
+### - Read data by category.   
+#### uri = (address)/admin/create  [GET]   
 
 
 ## Reference   
