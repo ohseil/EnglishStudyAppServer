@@ -1,10 +1,4 @@
-# EnglishApplicationServer   
-   
-   
-   
-   
-      
-         
+# EnglishApplicationServer         
             
                
 ### About the project  
