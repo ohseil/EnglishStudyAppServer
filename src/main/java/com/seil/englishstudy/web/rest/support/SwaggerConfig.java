@@ -25,7 +25,6 @@ public class SwaggerConfig {
 
     private ApiInfo swaggerInfo() {
         return new ApiInfoBuilder().title("Spring API Documentation")
-                .description("앱 개발시 사용되는 서버 API에 대한 연동 문서입니다")
-                .license("happydaddy").licenseUrl("http://daddyprogrammer.org").version("1").build();
+                .description("앱 개발시 사용되는 서버 API에 대한 연동 문서입니다").build();
     }
 }

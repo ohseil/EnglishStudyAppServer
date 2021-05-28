@@ -1,17 +1,57 @@
 spring:
+  profiles:
+    active: local
+
+#local
+---
+
+server:
+  profiles: local
+  port: 10000
+
+spring:
+  profiles: local
   datasource:
-    #driver-class-name: com.mysql.cj.jdbc.Driver
-    #password: '0000'
-    #url: jdbc:mysql://localhost:3306/EnglishStudyApp?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
-  #username: englishstudy
-    #jpa:
-    #database: mysql
-    #database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-    #generate-ddl: true
-  #show-sql: true
-    driver-class-name: org.h2.Driver
     url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    #data: classpath:data-h2.sql
     username: sa
+    password:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
   h2:
     console:
       enabled: true
+  jwt:
+    # jwt의 secret key.
+    secret: englishstudysecretkey!@#
+
+# 배포
+---
+spring:
+  profiles: run
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: '0000'
+    url: jdbc:mysql://13.125.59.65:3306/EnglishStudyApp?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+    username: englishstudy
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    generate-ddl: true
+    show-sql: true
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+  #h2:
+    #console:
+      #enabled: true
+
+logging:
+  file:
+    path: logs
+  level:
+    com:
+      seil: INFO

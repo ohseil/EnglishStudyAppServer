@@ -23,9 +23,9 @@ public class StudyDataCreateService {
                 answer(request.getAnswer()).
                 build();
 
-        englishStudyDataRepository.save(data);
+        Long id = englishStudyDataRepository.save(data).getId();
         englishStudyDataRepository.flush();
 
-        return DataCUDResponse.builder().msg("success").build();
+        return DataCUDResponse.builder().msg(id.toString()).build();
     }
 }

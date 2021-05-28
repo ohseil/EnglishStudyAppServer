@@ -12,4 +12,5 @@ public interface EnglishStudyDataRepository extends JpaRepository<EnglishStudyDa
 
     List<EnglishStudyData> findByCategorycode(long categoryCode);
     EnglishStudyData findByCategorycodeAndQuestionAndAnswer(long categorycode, String question, String answer);
+    List<EnglishStudyData> findByIdIn(List<Long> ids);
 }
