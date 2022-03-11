@@ -12,10 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -23,7 +20,6 @@ import java.util.Collections;
 @Api(tags = {"Sign"})
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(value = "/v1")
 public class SignController {
 
     private final UserJpaRepository userJpaRepo;
@@ -71,7 +67,7 @@ public class SignController {
             @ApiImplicitParam(name = "X-AUTH-TOKEN", value = "access_token after sign in", required = true, dataType = "String", paramType = "header")
     })
     @ApiOperation(value = "Get User data.", notes = "사용자 정보 조회.")
-    @PostMapping(value = "/getuser")
+    @GetMapping(value = "/users")
     public ResponseEntity getUser(@ApiParam(value = "email", required = true) @RequestParam String email) {
 
         User user = userJpaRepo.findByUid(email);
