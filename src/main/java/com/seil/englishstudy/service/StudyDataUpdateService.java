@@ -17,9 +17,9 @@ public class StudyDataUpdateService {
         this.englishStudyDataRepository = englishStudyDataRepository;
     }
 
-    public DataCUDResponse updateStudyData(DataUpdateRequest request) {
+    public DataCUDResponse updateStudyData(Long id, DataUpdateRequest request) {
 
-        Optional<EnglishStudyData> findData = englishStudyDataRepository.findById(request.getId());
+        Optional<EnglishStudyData> findData = englishStudyDataRepository.findById(id);
 
         findData.ifPresent(updateData -> {
             updateData.setCategorycode(request.getCategoryCode());
