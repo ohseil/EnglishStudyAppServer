@@ -48,10 +48,3 @@ spring:
   #h2:
     #console:
       #enabled: true
-
-logging:
-  file:
-    path: logs
-  level:
-    com:
-      seil: INFO
