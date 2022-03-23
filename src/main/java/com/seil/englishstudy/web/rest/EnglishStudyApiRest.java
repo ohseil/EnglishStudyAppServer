@@ -47,7 +47,7 @@ public class EnglishStudyApiRest {
     })
     @ApiOperation(value = "Data Update.", notes = "기존의 데이터를 수정한다.")
     @PutMapping(value = "/{id}", produces = "application/json;charset=utf-8")
-    public ResponseEntity updateData(@RequestParam @Valid Long id, @RequestBody @Valid DataUpdateRequest request) {
+    public ResponseEntity updateData(@PathVariable @Valid Long id, @RequestBody @Valid DataUpdateRequest request) {
         return ResponseEntity.ok(studyDataUpdateService.updateStudyData(id, request));
     }
 
@@ -56,7 +56,7 @@ public class EnglishStudyApiRest {
     })
     @ApiOperation(value = "Delete Data.", notes = "데이터를 삭제한다.")
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity deleteData(@RequestParam @Valid Long id) {
+    public ResponseEntity deleteData(@PathVariable @Valid Long id) {
         return ResponseEntity.ok(studyDataDeleteService.deleteStudyData(id));
     }
 
@@ -93,7 +93,7 @@ public class EnglishStudyApiRest {
     })
     @ApiOperation(value = "Read Data by Ids", notes = "id 리스트에 해당하는 데이터 리스트를 조회한다.")
     @GetMapping(value = "/{ids}")
-    public ResponseEntity readDataByIds(@RequestParam @Valid List<Long> ids) {
+    public ResponseEntity readDataByIds(@PathVariable @Valid List<Long> ids) {
         return ResponseEntity.ok(studyDataReadService.readStudyDataByIds(ids));
     }
 

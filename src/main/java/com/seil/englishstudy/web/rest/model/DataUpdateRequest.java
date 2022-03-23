@@ -22,9 +22,9 @@ public class DataUpdateRequest {
     @Max(value = 1000, message = "카테고리 코드는 0번부터 1000번까지 입니다.")
     private long categoryCode;
 
-    @Length(min = 0, max = 100, message = "문장의 길이는 최대 100글자 입니다.")
+    @Length(min = 0, max = 500, message = "문장의 길이는 최대 500글자 입니다.")
     private String question;
 
-    @Length(min = 0, max = 100, message = "문장의 길이는 최대 100글자 입니다.")
+    @Length(min = 0, max = 500, message = "문장의 길이는 최대 500글자 입니다.")
     private String answer;
 }

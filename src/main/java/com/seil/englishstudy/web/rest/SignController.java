@@ -33,8 +33,6 @@ public class SignController {
     public ResponseEntity signin(@ApiParam(value = "accessToken", required = true) @RequestParam String accessToken) {
 
         GoogleProfile gp = googleVerityService.getGoogleProfile(accessToken);
-        if (gp == null)
-            throw new SigninFailedException(HttpStatus.NOT_FOUND, ErrorCode.NOT_EXIST_DATA, "Failed verified.");
 
         User user = userJpaRepo.findByUid(gp.getEmail());
 
@@ -73,7 +71,7 @@ public class SignController {
         User user = userJpaRepo.findByUid(email);
 
         if (user == null)
-            throw new SigninFailedException(HttpStatus.NOT_FOUND, ErrorCode.NOT_EXIST_DATA, "Not User Data.");
+            throw new SigninFailedException(HttpStatus.NOT_FOUND, ErrorCode.NOT_EXIST_DATA, "not exist user data.");
 
         return ResponseEntity.ok(user);
     }

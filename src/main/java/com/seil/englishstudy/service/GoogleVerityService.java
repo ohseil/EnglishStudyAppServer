@@ -6,7 +6,10 @@ import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.gson.GsonFactory;
 import com.seil.englishstudy.Model.GoogleProfile;
+import com.seil.englishstudy.web.rest.exception.ErrorCode;
+import com.seil.englishstudy.web.rest.exception.SigninFailedException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -33,7 +36,7 @@ public class GoogleVerityService {
 
             GoogleIdToken token = GoogleIdToken.parse(mJFactory, accessToken);
 
-            if (verifier.verify(token)) {
+            if (verifier.verify(token) == true) {
                 System.out.println("valid token -> " + token.getPayload().toString());
 
                 return GoogleProfile.builder()
@@ -42,14 +45,13 @@ public class GoogleVerityService {
                         .build();
             }
             else {
-                System.out.println("invalid token.");
+                throw new SigninFailedException(HttpStatus.BAD_REQUEST, ErrorCode.REQUEST_NOT_VALID, "not valid token.");
             }
         } catch(IOException ex) {
-            System.out.println("io exeption => " + ex.getMessage());
+            throw new SigninFailedException(HttpStatus.INTERNAL_SERVER_ERROR, ErrorCode.INTERNAL_SERVER_ERROR, "failed verified.");
         } catch(GeneralSecurityException gse) {
-            System.out.println("general security exeption => " + gse.getMessage());
+            throw new SigninFailedException(HttpStatus.INTERNAL_SERVER_ERROR, ErrorCode.INTERNAL_SERVER_ERROR, "failed verified.");
         }
 
-        return null;
     }
 }

@@ -1,7 +1,9 @@
 package com.seil.englishstudy.web.rest.exception;
 
+import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
+@Getter
 public class SigninFailedException extends RuntimeException {
     private HttpStatus httpStatus;
     private String errorCode;
@@ -12,15 +14,4 @@ public class SigninFailedException extends RuntimeException {
         this.errorCode = errorcode;
     }
 
-    public HttpStatus getHttpStatus() {return this.httpStatus;}
-    public String getErrorCode() {return this.errorCode;}
-    /*public SigninFailedException(String msg, Throwable t) {
-        super(msg, t);
-    }
-    public SigninFailedException(String msg) {
-        super(msg);
-    }
-    public SigninFailedException() {
-        super();
-    }*/
 }

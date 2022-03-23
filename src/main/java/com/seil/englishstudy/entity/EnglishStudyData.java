@@ -21,9 +21,9 @@ public class EnglishStudyData {
     @Column(nullable = false)
     private long categorycode;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 500)
     private String question;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 500)
     private String answer;
 }
