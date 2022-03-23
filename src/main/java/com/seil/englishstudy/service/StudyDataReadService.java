@@ -40,7 +40,7 @@ public class StudyDataReadService {
     public DataReadPKResponse readPK(long categoryCode, String question, String answer) {
         EnglishStudyData data = englishStudyDataRepository.findByCategorycodeAndQuestionAndAnswer(categoryCode, question, answer);
         if (data == null)
-            throw new StudyDataException(HttpStatus.NOT_FOUND, ErrorCode.NOT_EXIST_DATA, "데이터가 없습니다.");
+            throw new StudyDataException(HttpStatus.NOT_FOUND, ErrorCode.NOT_EXIST_DATA, "not exist data.");
         return DataReadPKResponse.builder().
                 pk(data.getId()).
                 build();
@@ -78,7 +78,7 @@ public class StudyDataReadService {
 
         List<EnglishStudyData> dataList = englishStudyDataRepository.findAll();
         if (dataList.isEmpty() == true)
-            throw new StudyDataException(HttpStatus.NOT_FOUND, ErrorCode.NOT_EXIST_DATA, "데이터가 없습니다.");
+            throw new StudyDataException(HttpStatus.NOT_FOUND, ErrorCode.NOT_EXIST_DATA, "not exist data.");
         return DataReadResponse.builder().
                 dataList(dataList).
                 build();
@@ -87,7 +87,7 @@ public class StudyDataReadService {
     public DataReadResponse readStudyDataByCategory(long categoryCode) {
         List<EnglishStudyData> dataList = englishStudyDataRepository.findByCategorycode(categoryCode);
         if (dataList.isEmpty() == true)
-            throw new StudyDataException(HttpStatus.NOT_FOUND, ErrorCode.NOT_EXIST_DATA, "데이터가 없습니다.");
+            throw new StudyDataException(HttpStatus.NOT_FOUND, ErrorCode.NOT_EXIST_DATA, "not exist data.");
         return DataReadResponse.builder().
                 dataList(dataList).
                 build();
@@ -96,7 +96,7 @@ public class StudyDataReadService {
     public DataReadResponse readStudyDataByIds(List<Long> ids) {
         List<EnglishStudyData> dataList = englishStudyDataRepository.findByIdIn(ids);
         if (dataList.isEmpty() == true)
-            throw new StudyDataException(HttpStatus.NOT_FOUND, ErrorCode.NOT_EXIST_DATA, "데이터가 없습니다.");
+            throw new StudyDataException(HttpStatus.NOT_FOUND, ErrorCode.NOT_EXIST_DATA, "not exist data.");
         return DataReadResponse.builder().
                 dataList(dataList).
                 build();

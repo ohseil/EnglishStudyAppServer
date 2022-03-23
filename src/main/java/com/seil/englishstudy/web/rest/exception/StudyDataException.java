@@ -1,9 +1,9 @@
 package com.seil.englishstudy.web.rest.exception;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
+@Getter
 public class StudyDataException extends RuntimeException {
 
     private HttpStatus httpStatus;
@@ -15,6 +15,4 @@ public class StudyDataException extends RuntimeException {
         this.errorCode = errorcode;
     }
 
-    public HttpStatus getHttpStatus() {return this.httpStatus;}
-    public String getErrorCode() {return this.errorCode;}
 }

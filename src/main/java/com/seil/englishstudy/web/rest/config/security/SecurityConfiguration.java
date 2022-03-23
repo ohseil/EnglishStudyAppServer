@@ -3,7 +3,6 @@ package com.seil.englishstudy.web.rest.config.security;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -42,7 +41,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override // ignore check swagger resource
     public void configure(WebSecurity web) {
         web.ignoring().antMatchers("/v2/api-docs", "/swagger-resources/**",
-                "/swagger-ui.html", "/webjars/**", "/swagger/**");
+                "/swagger-ui.html", "/swagger/**");
 
     }
 }
