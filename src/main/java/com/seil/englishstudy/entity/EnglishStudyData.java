@@ -3,6 +3,7 @@ package com.seil.englishstudy.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Builder
 @Entity
@@ -26,4 +27,19 @@ public class EnglishStudyData {
 
     @Column(nullable = false, length = 500)
     private String answer;
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        EnglishStudyData data = (EnglishStudyData) obj;
+        return Objects.equals(this.id, data.id)
+                && Objects.equals(this.categorycode, data.categorycode)
+                && Objects.equals(this.question, data.question)
+                && Objects.equals(this.answer, data.answer);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, categorycode, question, answer);
+    }
 }
