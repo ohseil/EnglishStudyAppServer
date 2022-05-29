@@ -9,7 +9,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.seil.englishstudy.Model.GoogleProfile;
 import com.seil.englishstudy.entity.User;
 import com.seil.englishstudy.repository.UserJpaRepository;
-import com.seil.englishstudy.service.GoogleVerityService;
+import com.seil.englishstudy.service.GoogleVerifyService;
 import com.seil.englishstudy.web.rest.SignController;
 import com.seil.englishstudy.web.rest.config.security.JwtTokenProvider;
 import org.junit.jupiter.api.Test;
@@ -33,7 +33,7 @@ public class SignControllerTest {
     @MockBean
     private JwtTokenProvider jwtTokenProvider;
     @MockBean
-    private GoogleVerityService googleVerityService;
+    private GoogleVerifyService googleVerifyService;
     @MockBean
     AuthenticationManager authenticationManager;
 
@@ -52,7 +52,7 @@ public class SignControllerTest {
                             .roles(Arrays.asList("ROLE_USER"))
                             .build();
 
-        given(googleVerityService.getGoogleProfile("IdToken"))
+        given(googleVerifyService.getGoogleProfile("IdToken"))
                 .willReturn(googleProfile);
         given(userJpaRepo.findByUid(googleProfile.getEmail()))
                 .willReturn(null);
@@ -91,7 +91,7 @@ public class SignControllerTest {
                             .roles(Arrays.asList("ROLE_USER"))
                             .build();
 
-        given(googleVerityService.getGoogleProfile("IdToken"))
+        given(googleVerifyService.getGoogleProfile("IdToken"))
                 .willReturn(googleProfile);
         given(userJpaRepo.findByUid(googleProfile.getEmail()))
                 .willReturn(user);

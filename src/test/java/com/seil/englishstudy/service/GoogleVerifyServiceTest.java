@@ -14,10 +14,10 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 public class GoogleVerifyServiceTest {
 
     @InjectMocks
-    private GoogleVerityService googleVerityService;
+    private GoogleVerifyService googleVerifyService;
 
     @Mock
-    private GoogleVerityService.GoogleIdTokenVerifyService googleIdTokenVerifyService;
+    private GoogleVerifyService.GoogleIdTokenVerifyService googleIdTokenVerifyService;
 
     @Test
     void verify테스트() {
@@ -31,7 +31,7 @@ public class GoogleVerifyServiceTest {
                 .willReturn("test_name");
 
         // when
-        final GoogleProfile googleProfile = googleVerityService.getGoogleProfile("token");
+        final GoogleProfile googleProfile = googleVerifyService.getGoogleProfile("token");
 
         // then
         assertThat(googleProfile.getEmail())

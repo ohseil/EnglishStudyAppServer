@@ -15,7 +15,7 @@ import java.security.GeneralSecurityException;
 import java.util.Collections;
 
 @Service
-public class GoogleVerityService {
+public class GoogleVerifyService {
 
     GoogleIdTokenVerifyService googleIdTokenVerifyService;
 
@@ -84,7 +84,7 @@ public class GoogleVerityService {
         }
     }
 
-    public GoogleVerityService() {
+    public GoogleVerifyService() {
         googleIdTokenVerifyService = new DefaultGoogleVerifyService();
     }
 

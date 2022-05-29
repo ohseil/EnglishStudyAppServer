@@ -3,7 +3,7 @@ package com.seil.englishstudy.web.rest;
 import com.seil.englishstudy.Model.GoogleProfile;
 import com.seil.englishstudy.entity.User;
 import com.seil.englishstudy.repository.UserJpaRepository;
-import com.seil.englishstudy.service.GoogleVerityService;
+import com.seil.englishstudy.service.GoogleVerifyService;
 import com.seil.englishstudy.web.rest.config.security.JwtTokenProvider;
 import com.seil.englishstudy.web.rest.exception.ErrorCode;
 import com.seil.englishstudy.web.rest.exception.SigninFailedException;
@@ -24,7 +24,7 @@ public class SignController {
 
     private final UserJpaRepository userJpaRepo;
     private final JwtTokenProvider jwtTokenProvider;
-    private final GoogleVerityService googleVerityService;
+    private final GoogleVerifyService googleVerifyService;
 
     private static final String adminEmail = "siohbaram@gmail.com";
 
@@ -32,7 +32,7 @@ public class SignController {
     @PostMapping(value = "/signin")
     public ResponseEntity signin(@ApiParam(value = "accessToken", required = true) @RequestParam String accessToken) {
 
-        GoogleProfile gp = googleVerityService.getGoogleProfile(accessToken);
+        GoogleProfile gp = googleVerifyService.getGoogleProfile(accessToken);
 
         User user = userJpaRepo.findByUid(gp.getEmail());
 
