@@ -31,8 +31,6 @@ public class StudyDataReadService {
 
     private final EnglishStudyDataRepository englishStudyDataRepository;
 
-    String tokenString = "eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc3NDU3MzIxOGM2ZjZhMmZlNTBlMjlhY2JjNjg2NDMyODYzZmM5YzMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI5MTkwNzM0OTE3NTgtYzcxZnM2NHQ2dmwyMjk2bDIyYzUyNzlzYXZyOXBvMGguYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI5MTkwNzM0OTE3NTgtZmUydDIzNGlvN2FubWIwN2NqdTFoY2cxcjk2cjFqcDIuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDU1NTMzMzc4NjQ2MzA1MDIwNDMiLCJlbWFpbCI6InNpb2hiYXJhbUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmFtZSI6IuyYpOyEuOydvCIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vLWQzVXY4MVEwM3RFL0FBQUFBQUFBQUFJL0FBQUFBQUFBQUFBL0FNWnV1Y253eWFZNV9FUU1fTmgtbnM3ek9JMnBoMUpYclEvczk2LWMvcGhvdG8uanBnIiwiZ2l2ZW5fbmFtZSI6IuyEuOydvCIsImZhbWlseV9uYW1lIjoi7JikIiwibG9jYWxlIjoia28iLCJpYXQiOjE2MTgzMjc4NzAsImV4cCI6MTYxODMzMTQ3MH0.ZB4EgDvIdZgm_RAzriHKJD17WFER8ep8L7-bMy1uh_0VfTK1xUb5DDbMxEClFTR6wdL47Dh58mEmZTRNFePxUAgiosGerMBUiKwSZELNzQiLY4JnVxLp1eaZ-pTwsp-P3G7a94LvNx7bzKaL-aNBeIjTkuKqjUCPXRd_fOqHhwoHHjQHaDxyZyDnC4rLzqLJE0_tbhFCh8TeKoN9pnI6hERLSj4Uzee46d_5K12y7TtMPdFJ49j8CRxMUUVXrUYpDqmW3gsp-wa4i9oOgp8rVrGCw2s1JJ2Kgrweup-e_2F5vzo6rCJa5AxdTXaqwebGfZ7EZBXjfloJZIVX4iMoJA";
-
     public StudyDataReadService(EnglishStudyDataRepository englishStudyDataRepository) {
         this.englishStudyDataRepository = englishStudyDataRepository;
     }
@@ -47,34 +45,6 @@ public class StudyDataReadService {
     }
 
     public DataReadResponse readStudyDataAll() {
-
-        /*GoogleIdToken googleIdToken;
-        GoogleIdTokenVerifier mVerifier;
-        NetHttpTransport transport = new NetHttpTransport();
-        JsonFactory mJFactory = new GsonFactory();
-        
-        GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(new NetHttpTransport(), new GsonFactory())
-                // Specify the CLIENT_ID of the app that accesses the backend:
-                .setAudience(Collections.singletonList("919073491758-fe2t234io7anmb07cju1hcg1r96r1jp2.apps.googleusercontent.com"))
-                // Or, if multiple clients access the backend:
-                //.setAudience(Arrays.asList(CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3))
-                .build();
-
-
-        try {
-            GoogleIdToken token = GoogleIdToken.parse(mJFactory, tokenString);
-
-            if (verifier.verify(token)) {
-                System.out.println("valid token -> " + token.getPayload().toString());
-            }
-            else {
-                System.out.println("invalid token.");
-            }
-        } catch(IOException ex) {
-            System.out.println("io exeption => " + ex.getMessage());
-        } catch(GeneralSecurityException gse) {
-            System.out.println("general security exeption => " + gse.getMessage());
-        }*/
 
         List<EnglishStudyData> dataList = englishStudyDataRepository.findAll();
         if (dataList.isEmpty() == true)

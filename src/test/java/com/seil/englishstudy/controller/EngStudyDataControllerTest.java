@@ -29,8 +29,6 @@ import java.util.Arrays;
 import java.util.List;
 
 @WebMvcTest(controllers = EnglishStudyApiRest.class)
-//@SpringBootTest
-//@AutoConfigureMockMvc
 @WithMockUser(username = "test@gmail.com")
 public class EngStudyDataControllerTest {
 
