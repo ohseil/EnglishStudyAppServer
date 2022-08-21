@@ -15,7 +15,8 @@ Spring Boot API Server connecting to english study android application
 - MySQL   
 ## Structure   
 ### ERD   
-### uri : https://www.erdcloud.com/d/JA2hu4wYpbCimAHgF
+### uri : https://www.erdcloud.com/d/JA2hu4wYpbCimAHgF   
+<img width="100%" src="https://user-images.githubusercontent.com/16574022/185776798-f3af86af-35e4-433c-a7ee-e546a70a0afc.png"/>
 
 
 
