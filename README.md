@@ -1,31 +1,29 @@
 # EnglishApplicationServer         
             
                
-### About the project  
-spring boot  Api server connecting to english study android application   
-### Skill   
+## Note.   
+- Redesign and develop the project entirely   
+## About the project  
+spring boot Api server connecting to english study android application   
+- Http API server serving data CRUD functions based to REST architecture.
+- Manage Authentication & Authorization based to JWT using Spring Security.   
+## Skill   
 - Java
 - Spring Boot2
-- SQL DB   
-### Structure   
-- Client can read data by category using android application.
-- Admin Client can CRUD data using manager android application.
-- Client / Admin client use JWT issued from Server to get data.
-- Client have to do google login.   
-#### user application github uri   
-https://github.com/ohseil/EnglishStudy-Android-App   
-#### managing application github uri   
-https://github.com/ohseil/EnglishStudy-Manage-Android-App   
+- Spring Security
+- Spring Data JPA
+- MySQL   
+## Structure   
+### ERD   
+### uri : https://www.erdcloud.com/d/JA2hu4wYpbCimAHgF
 
 
-## Using Representive Api Reference   
 
-### - Sign in / up and Issue JWT   
-#### uri = (address)/signin  [POST]   
 
-### - Read data by category.   
-#### uri = (address)/admin/create  [GET]   
+## API Specification   
+### uri : https://app.swaggerhub.com/apis-docs/ohseil/EnglishStudyApp_API/1.0.0   
 
 
 ## Reference   
-- Have to change ip address and DB address in .yml setting file if you use.
+- user client application github uri : https://github.com/ohseil/EnglishStudy-Android-App      
+- admin client application github uri : https://github.com/ohseil/EnglishStudy-Manage-Android-App   
