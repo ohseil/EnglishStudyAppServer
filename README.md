@@ -4,7 +4,7 @@
 ## Note.   
 - Redesign and develop the project entirely   
 ## About the project  
-spring boot Api server connecting to english study android application   
+Spring Boot API Server connecting to english study android application   
 - Http API server serving data CRUD functions based to REST architecture.
 - Manage Authentication & Authorization based to JWT using Spring Security.   
 ## Skill   
