@@ -4,15 +4,14 @@ import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
 @Getter
-public class SigninFailedException extends RuntimeException {
+public class FavoriteException extends RuntimeException {
 
     private HttpStatus httpStatus;
     private String errorCode;
 
-    public SigninFailedException(HttpStatus httpstatus, String errorcode, String msg) {
+    public FavoriteException(HttpStatus httpstatus, String errorcode, String msg) {
         super(msg);
         this.httpStatus = httpstatus;
         this.errorCode = errorcode;
     }
-
 }

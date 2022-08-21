@@ -13,7 +13,7 @@ import java.util.Arrays;
 @DataJpaTest
 public class UserRepositoryTest {
 
-    @Autowired
+    /*@Autowired
     private UserJpaRepository userJpaRepository;
 
     @Test
@@ -37,5 +37,5 @@ public class UserRepositoryTest {
                 .isNotNull();
         assertThat(load_data.getUsername())
                 .isEqualTo("test@gmail.com");
-    }
+    }*/
 }

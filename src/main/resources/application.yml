@@ -12,18 +12,29 @@ server:
 spring:
   profiles: local
   datasource:
-    url: jdbc:h2:mem:testdb
-    driver-class-name: org.h2.Driver
-    #data: classpath:data-h2.sql
-    username: sa
-    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/ENGSTUDYAPP_DB?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&serverTimezone=Asia/Seoul
+    username: engstudyappserver
+    password: '0612'
+# --- 메모리 디비 사용 시 설정 내용
+  #datasource:
+  #  url: jdbc:h2:mem:testdb
+   # driver-class-name: org.h2.Driver
+    #data: classpath:data-h2.sql <- 원래 주석 되어있었음.
+    #username: sa
+    #password:
+# ------------------------
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create-drop
-  h2:
-    console:
-      enabled: true
+      ddl-auto: create
+    properties:
+      hibernate:
+        format-sql: true
+        default_batch_fetch_size: 1000
+  #h2:
+  #  console:
+  #    enabled: true
   jwt:
     # jwt의 secret key.
     secret: englishstudysecretkey!@#
