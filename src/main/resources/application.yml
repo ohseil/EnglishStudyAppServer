@@ -51,14 +51,14 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://db-englishstudyappapiserver.ckovzyfpq2y1.ap-northeast-2.rds.amazonaws.com/ENGSTUDYAPP_DB?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&serverTimezone=Asia/Seoul
+    url: jdbc:mysql://db-englishstudyappapiserver.ckovzyfpq2y1.ap-northeast-2.rds.amazonaws.com:3306/ENGSTUDYAPP_DB?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&serverTimezone=Asia/Seoul
     username: englishstudyappserver
     password: '0612'
 
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: validate
     properties:
       hibernate:
         format-sql: true
