@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: local
+    active: run
 
 #local
 ---
@@ -58,7 +58,7 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
     properties:
       hibernate:
         format-sql: true
