@@ -45,17 +45,24 @@ spring:
   profiles: run
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    password: '0000'
-    url: jdbc:mysql://13.125.59.65:3306/EnglishStudyApp?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
-    username: englishstudy
+    url: jdbc:mysql://db-englishstudyappapiserver.ckovzyfpq2y1.ap-northeast-2.rds.amazonaws.com/ENGSTUDYAPP_DB?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&serverTimezone=Asia/Seoul
+    username: englishstudyappserver
+    password: '0612'
   jpa:
-    database: mysql
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-    generate-ddl: true
     show-sql: true
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:testdb
-    username: sa
+      hibernate:
+        ddl-auto: create
+      properties:
+        hibernate:
+          format-sql: true
+          default_batch_fetch_size: 1000
+    #database: mysql
+    #database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    #generate-ddl: true
+    #show-sql: true
+    #driver-class-name: org.h2.Driver
+    #url: jdbc:h2:mem:testdb
+    #username: sa
   #h2:
     #console:
       #enabled: true
