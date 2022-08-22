@@ -41,21 +41,28 @@ spring:
 
 # 배포
 ---
+
+server:
+  profiles: run
+  port: 10000
+
 spring:
   profiles: run
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://db-englishstudyappapiserver.ckovzyfpq2y1.ap-northeast-2.rds.amazonaws.com/ENGSTUDYAPP_DB?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&serverTimezone=Asia/Seoul
     username: englishstudyappserver
     password: '0612'
+
   jpa:
     show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
       hibernate:
-        ddl-auto: create
-      properties:
-        hibernate:
-          format-sql: true
-          default_batch_fetch_size: 1000
+        format-sql: true
+        default_batch_fetch_size: 1000
     #database: mysql
     #database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     #generate-ddl: true
