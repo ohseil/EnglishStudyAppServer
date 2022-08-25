@@ -26,7 +26,7 @@ public class AdminEngStudyController {
 
     @PostMapping
     public ResponseEntity createEngStudyData(@RequestBody @Valid final AdminEngStudyCreateRequest adminEngStudyCreateRequest) {
-        Long engStudyDataId = adminEngStudyCreateService.createEngStudyData(adminEngStudyCreateRequest);
+        final Long engStudyDataId = adminEngStudyCreateService.createEngStudyData(adminEngStudyCreateRequest);
         return ResponseEntity.created(URI.create("/admin/studydatas/" + engStudyDataId)).build();
     }
 
@@ -38,7 +38,7 @@ public class AdminEngStudyController {
     @PutMapping(value = "/{engStudyDataId}")
     public ResponseEntity updateEngStudyData(@PathVariable final Long engStudyDataId, @RequestBody @Valid final AdminEngStudyUpdateRequest adminEngStudyUpdateRequest) {
 
-        AdminEngStudyUpdateResponse adminEngStudyUpdateResponse = adminEngStudyUpdateService.updateEngStudyData(engStudyDataId, adminEngStudyUpdateRequest);
+        final AdminEngStudyUpdateResponse adminEngStudyUpdateResponse = adminEngStudyUpdateService.updateEngStudyData(engStudyDataId, adminEngStudyUpdateRequest);
 
         if (adminEngStudyUpdateRequest.getCategoryCode() == adminEngStudyUpdateResponse.getCategoryCode()
             && adminEngStudyUpdateRequest.getQuestion().equals(adminEngStudyUpdateResponse.getQuestion())

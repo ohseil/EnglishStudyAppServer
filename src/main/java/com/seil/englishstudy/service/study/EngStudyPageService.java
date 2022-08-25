@@ -29,14 +29,14 @@ public class EngStudyPageService {
 
         List<EngStudyPageResponse> engStudyPageResponseList = new ArrayList<>();
 
-        engStudyDataList.forEach(engStudyData -> {
+        engStudyDataList.forEach(engStudyData ->
             engStudyPageResponseList.add(EngStudyPageResponse.builder()
                     .engStudyDataId(engStudyData.getId())
                     .categoryCode(engStudyData.getCategoryCode())
                     .question(engStudyData.getQuestion())
                     .answer(engStudyData.getAnswer())
-                    .build());
-        });
+                    .build())
+        );
 
         return engStudyPageResponseList;
     }

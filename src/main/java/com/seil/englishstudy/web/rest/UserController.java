@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
+
 @RequiredArgsConstructor
 @RequestMapping(value = "/users")
 @RestController
@@ -16,9 +18,14 @@ public class UserController {
 
     private final AuthService authService;
 
+    class asdf {
+        public String jwt;
+    }
+
     @PostMapping
     public ResponseEntity signIn(@RequestBody final String idToken) {
-        return ResponseEntity.ok(authService.signIn(idToken));
+        final String jwt = authService.signIn(idToken);
+        return ResponseEntity.ok(Collections.singletonMap("jwt", jwt));
     }
 
     @ApiImplicitParams({

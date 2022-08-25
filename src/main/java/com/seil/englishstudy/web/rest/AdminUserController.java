@@ -22,7 +22,7 @@ public class AdminUserController {
 
     @PostMapping
     public ResponseEntity createAdminAccount(@RequestBody @Valid final AdminUserCreateRequest adminUserCreateRequest) {
-        Long id = adminUserCreateService.createAdminUser(adminUserCreateRequest);
+        final Long id = adminUserCreateService.createAdminUser(adminUserCreateRequest);
         return ResponseEntity.created(URI.create("/admin/users/" + id)).build();
     }
 
