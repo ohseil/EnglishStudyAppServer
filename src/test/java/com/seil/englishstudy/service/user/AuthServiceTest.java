@@ -1,14 +1,17 @@
 package com.seil.englishstudy.service.user;
 
-import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
-import com.google.api.client.json.gson.GsonFactory;
+import com.seil.englishstudy.entity.User;
 import com.seil.englishstudy.repository.UserRepository;
+import com.seil.englishstudy.vo.GoogleProfile;
 import com.seil.englishstudy.web.rest.security.JwtProvider;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import java.util.Arrays;
+import java.util.HashSet;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
@@ -28,43 +31,75 @@ public class AuthServiceTest {
     @Mock
     private UserRepository userRepository;
     @Mock
-    private GoogleAuthVerifyService googleAuthVerifyService;
+    private GoogleVerifyService googleVerifyService;
     @Mock
     private JwtProvider jwtProvider;
 
     @Test
-    void 회원가입() throws Exception {
+    void 회원가입() {
 
         // given
         final String idToken = "idToken";
 
-        final GoogleIdToken googleIdToken = null;
+        final GoogleProfile googleProfile = GoogleProfile.builder()
+                                                        .email("test@gmail.com")
+                                                        .name("test")
+                                                        .build();
 
-        given(googleAuthVerifyService.getGoogleIdToken(idToken))
-                .willReturn(googleIdToken);
-        given(googleAuthVerifyService.verifyIdToken(googleIdToken))
-                .willReturn(true);
-        given(googleIdToken.getPayload())
+        final User user = User.builder()
+                            .email("test@gmail.com")
+                            .name("test")
+                            .roleList(new HashSet<>(Arrays.asList("ROLE_USER")))
+                            .build();
+
+        final String jwt = "jwt";
+
+        given(googleVerifyService.verify(idToken))
+                .willReturn(googleProfile);
+        given(userRepository.findByEmail(googleProfile.getEmail()))
                 .willReturn(null);
-        given(googleIdToken.getPayload().getEmail())
-                .willReturn("test@gmail.com");
-        given(googleIdToken.getPayload().get("name").toString())
-                .willReturn("test");
+        given(jwtProvider.createJwt(String.valueOf(user.getId()), user.getRoleList()))
+                .willReturn("jwt");
 
         // when
-        final String jwt = authService.signIn(idToken);
+        final String result = authService.signIn(idToken);
 
         // then
-        assertThat(jwt).isNotNull();
+        assertThat(result).isNotNull().isEqualTo("jwt");
     }
 
     @Test
     void 로그인() {
 
+        // given
+        final String idToken = "idToken";
+
+        final GoogleProfile googleProfile = GoogleProfile.builder()
+                .email("test@gmail.com")
+                .name("test")
+                .build();
+
+        final User user = User.builder()
+                .id(1L)
+                .email("test@gmail.com")
+                .name("test")
+                .roleList(new HashSet<>(Arrays.asList("ROLE_USER")))
+                .build();
+
+        final String jwt = "jwt";
+
+        given(googleVerifyService.verify(idToken))
+                .willReturn(googleProfile);
+        given(userRepository.findByEmail(googleProfile.getEmail()))
+                .willReturn(user);
+        given(jwtProvider.createJwt(String.valueOf(user.getId()), user.getRoleList()))
+                .willReturn("jwt");
+
+        // when
+        final String result = authService.signIn(idToken);
+
+        // then
+        assertThat(result).isNotNull().isEqualTo("jwt");
     }
 
-    @Test
-    void 회원탈퇴() {
-
-    }
 }
