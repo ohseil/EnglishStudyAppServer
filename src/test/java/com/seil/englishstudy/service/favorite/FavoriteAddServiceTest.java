@@ -41,7 +41,7 @@ public class FavoriteAddServiceTest {
     void 즐겨찾기추가() {
 
         // given
-        final Long engStudyDataId = 10L;
+        final Long engStudyDataId = 1L;
 
         final User user = User.builder()
                                 .id(1L)
@@ -58,6 +58,6 @@ public class FavoriteAddServiceTest {
         final Long favoriteId = favoriteAddService.addFavoriteForUser(engStudyDataId, user);
 
         // then
-        assertThat(favoriteId).isEqualTo(1L);
+        assertThat(favoriteId).isNull();
     }
 }
