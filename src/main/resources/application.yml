@@ -51,7 +51,7 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://db-englishstudyappapiserver.ckovzyfpq2y1.ap-northeast-2.rds.amazonaws.com:3306/ENGSTUDYAPP_DB?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&serverTimezone=Asia/Seoul
+    url: jdbc:mysql://database-1.co1bgasax172.ap-northeast-2.rds.amazonaws.com:3306/engstudyapp_db?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&serverTimezone=Asia/Seoul
     username: englishstudyappserver
     password: '0612'
 
