@@ -8,7 +8,7 @@ Spring Boot API Server connecting to english study android application
 - Http API server serving data CRUD functions based to REST architecture.
 - Manage Authentication & Authorization based to JWT using Spring Security.   
 ## Skill   
-- Java
+- Java 8
 - Spring Boot2
 - Spring Security
 - Spring Data JPA
