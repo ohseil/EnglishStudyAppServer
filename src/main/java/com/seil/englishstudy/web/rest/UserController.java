@@ -18,10 +18,6 @@ public class UserController {
 
     private final AuthService authService;
 
-    class asdf {
-        public String jwt;
-    }
-
     @PostMapping
     public ResponseEntity signIn(@RequestBody final String idToken) {
         final String jwt = authService.signIn(idToken);
